@@ -1,0 +1,53 @@
+﻿@model IEnumerable<aspnet_mongo.Models.Product>
+
+@{
+    ViewData["Title"] = "TemTudo - Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Cadastrar novo</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Image_url)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                R$@Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image_url)
+                </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

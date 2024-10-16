@@ -1,0 +1,29 @@
+﻿@model IEnumerable<aspnet_mongo.Models.Product>
+
+@{
+    ViewData["Title"] = "TemTudo - Página inicial";
+}
+<link href="~/css/style.css" rel="stylesheet" />
+
+@if(Model == null)
+{
+    <p>Nenhum produto foi encontrado</p>
+}
+else
+{
+    <div class="container">
+        <div class="row content">
+    @foreach (var item in Model)
+    {
+                <div class="col-2 card m-1 card-prod">
+                    <img src="/assets/products/@item.Image_url" width="120" height="240" class="card-img-top" alt="Livro" />
+                    <div class="card-body text-center p-1">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="text-center text-size">R$@item.Price<br />@item.Description</p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+    }
+        </div>
+    </div>
+}

@@ -1,0 +1,6 @@
+# ignorar pastas de build
+bin/
+obj/
+
+# ignorar pasta vs
+.vs/

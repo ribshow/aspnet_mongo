@@ -1,0 +1,37 @@
+﻿@model aspnet_mongo.Models.User
+<link href="~/css/users.css" rel="stylesheet" />
+
+@{
+    ViewData["Title"] = "TemTudo - Exibir detalhes";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Usuário</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image_url)
+        </dt>
+        <dd class="col-sm-10">
+            <img class="image-user" src="~/assets/users/@Model.Image_url" alt="user" />
+        </dd>
+    </dl>
+</div>
+<div class="col">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-success">Editar</a> |
+    <a asp-action="Index" class="btn btn-warning">Retornar</a>
+</div>

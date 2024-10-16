@@ -1,0 +1,40 @@
+﻿@model aspnet_mongo.Models.User
+
+@{
+    ViewData["Title"] = "TemTudo - Cadastrar Usuário";
+}
+
+<h1>Cadastrar</h1>
+
+<h4>Usuário</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@Html.DisplayNameFor(Model => Model.Image_url)</label>
+                <input type="file" id="Image" name="Image" accept=".jpg, .png, .jpeg" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group col text-center p-2">
+                <input type="submit" value="Cadastrar" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-warning">Retornar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

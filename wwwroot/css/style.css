@@ -1,0 +1,53 @@
+﻿/* centraliza os elementos dentro da div content */
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* display:flex, flex-direction: column garantem que o conteúdo se distribua verticalmente, com o rodapé sempre no final */
+.card-prod {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 26rem; /* Defina uma altura fixa para todos os cards */
+}
+
+.card-body {
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.text-size {
+    height: 80px; /* Altura fixa para o texto da descrição */
+    overflow: hidden; /* Oculta o texto excedente */
+    text-overflow: ellipsis; /* Adiciona '...' no final do texto longo */
+}
+
+.card-footer {
+    margin-top: auto;
+}
+
+/*Expandir as imagens ao passar o mouse sobre elas */
+.expand-img {
+    transition: width 0.25s, height 0.25s;
+}
+
+.expand-img:hover{
+    width: 18rem;
+    height: 18rem;
+    cursor: pointer;
+}
+
+@media (max-width: 600px)
+{
+    .card-prod {
+        width: 80%;
+        height: auto;
+    }
+
+}
