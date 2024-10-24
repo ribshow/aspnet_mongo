@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 26rem; /* Defina uma altura fixa para todos os cards */
+    padding: 0.5rem;
 }
 
 .card-body {

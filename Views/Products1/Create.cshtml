@@ -4,12 +4,10 @@
     ViewData["Title"] = "TemTudo - Cadastrar Produto";
 }
 
-<h1>Cadastrar</h1>
+<div class="d-flex justify-content-center aligm-items-center">
+    <div class="col-md-4 p-3">
+        <h3 class="text-center">Cadastrar novo produto</h3>
 
-<h4>Produto</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -34,7 +32,6 @@
             </div>
             <div class="form-group col text-center p-2">
                 <input type="submit" value="Cadastrar" class="btn btn-success" />
-                <a asp-action="Index" class="btn btn-warning">Retornar</a>
             </div>
         </form>
     </div>

@@ -1,22 +1,10 @@
 ﻿using aspnet_mongo.Validations;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace aspnet_mongo.Models
 {
-    public enum Gender
+    public class RegisterViewModel
     {
-        Man,
-        Woman,
-        Others
-    }
-    [Table("User")]
-    public class User
-    {
-        [Column("Id")]
-        [Display(Name = "ID")]
-        public Guid Id { get; set; }
-
         [Required]
         [EmailAddress(ErrorMessage = "Endereço de email inválido")]
         [UniqueEmail(ErrorMessage = "Endereço de email já cadastrado")]
@@ -25,7 +13,6 @@ namespace aspnet_mongo.Models
         [Required]
         [DataType(DataType.Password)]
         [PasswordComplexity(ErrorMessage = "A senha deve conter no mínimo 8 caracteres, 1 letra maiúscula e 1 caractere especial!")]
-        [Display(Name = "Senha")]
         public string? Password { get; set; }
 
         [Required]

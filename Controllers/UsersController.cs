@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using aspnet_mongo.Data;
 using aspnet_mongo.Models;
 using MongoDB.Driver;
+using Microsoft.AspNetCore.Authorization;
 
 namespace aspnet_mongo.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         private readonly ContextMongoDb _context;
@@ -55,7 +56,7 @@ namespace aspnet_mongo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name, Age, Image_url")] User user, IFormFile Image)
+        public async Task<IActionResult> Create([Bind("Id, Email, Password, ConfirmPassword, Name, UserName, Gender, Age, Image_url")] ApplicationUser user, IFormFile Image)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +104,7 @@ namespace aspnet_mongo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Age")] User user, IFormFile Image)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Age")] ApplicationUser user, IFormFile Image)
         {
             if (id != user.Id)
             {

@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using aspnet_mongo.Data;
 using aspnet_mongo.Models;
 using MongoDB.Driver;
+using Microsoft.AspNetCore.Authorization;
 
 namespace aspnet_mongo.Controllers
 {
+    [Authorize]
     public class Products1Controller : Controller
     {
         private readonly ContextMongoDb _context;

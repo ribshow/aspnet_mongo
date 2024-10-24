@@ -6,7 +6,6 @@ namespace aspnet_mongo.Models
     public class ContextMongoDb
     {
         public static string? ConnectionString { get; set; }
-        public static string? Database { get; set;}
         public static bool IsSSL { get; set;}
 
         public static string? DatabaseName { get; set;}
@@ -35,7 +34,7 @@ namespace aspnet_mongo.Models
             }
         }
 
-        public IMongoCollection<User> User => _database.GetCollection<User>("User");
+        public IMongoCollection<ApplicationUser> User => _database.GetCollection<ApplicationUser>("User");
 
         public IMongoCollection<Product> Product => _database.GetCollection<Product>("Product");
     }
